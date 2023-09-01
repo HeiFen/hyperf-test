@@ -11,14 +11,21 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Exception\Exception\ApiException;
 use App\Model\User;
-
-use function Swoole\Coroutine\Http\request;
+use App\Request\UserRequest;
 
 class IndexController extends AbstractController
 {
-    public function index()
+    public function index(UserRequest $rqeuest)
     {
-        return User::first()->toArry();
+        $a = 0/0;
+        $user = User::find($rqeuest->input('id'));
+
+        if (is_null($user)) {
+            throw new ApiException("用户不存在");
+        }
+
+        return $user;
     }
 }

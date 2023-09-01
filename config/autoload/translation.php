@@ -1,9 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
-use App\Middleware\ResponseMiddleware;
-
 /**
  * This file is part of Hyperf.
  *
@@ -13,8 +10,7 @@ use App\Middleware\ResponseMiddleware;
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 return [
-    'http' => [
-        \Hyperf\Validation\Middleware\ValidationMiddleware::class,
-        ResponseMiddleware::class,
-    ],
+    'locale' => 'zh_CN',
+    'fallback_locale' => 'en',
+    'path' => BASE_PATH . '/storage/languages',
 ];

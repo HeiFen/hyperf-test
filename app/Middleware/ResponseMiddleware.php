@@ -28,8 +28,8 @@ class ResponseMiddleware implements MiddlewareInterface
             'code' => 200,
             'message' => 'success',
             'data' => json_decode($body, true)
-        ]);
+        ], JSON_UNESCAPED_UNICODE);
        
-        return $reponse->withBody(new SwooleStream($response_json));
+        return $reponse->withAddedHeader('Content-Type', 'application/json')->withBody(new SwooleStream($response_json));
     }
 }
