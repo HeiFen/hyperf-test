@@ -19,7 +19,6 @@ class IndexController extends AbstractController
 {
     public function index(UserRequest $rqeuest)
     {
-        $a = 0/0;
         $user = User::find($rqeuest->input('id'));
 
         if (is_null($user)) {
