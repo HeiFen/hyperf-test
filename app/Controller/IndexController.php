@@ -13,18 +13,12 @@ namespace App\Controller;
 
 use App\Exception\Exception\ApiException;
 use App\Model\User;
-use App\Request\UserRequest;
+use Hyperf\HttpServer\Contract\RequestInterface;
 
 class IndexController extends AbstractController
 {
-    public function index(UserRequest $rqeuest)
+    public function index(RequestInterface $rqeuest)
     {
-        $user = User::find($rqeuest->input('id'));
-
-        if (is_null($user)) {
-            throw new ApiException("用户不存在");
-        }
-
-        return $user;
+        return $rqeuest->all();
     }
 }
