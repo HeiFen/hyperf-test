@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
             $table->string('uuid', 32)->comment('编号');
             $table->string('name', 100)->nullable()->comment('昵称');
             $table->string('phone', 30)->nullable()->unique()->comment('手机号');
-            $table->string('password', 40)->nullable()->comment('密码');
+            $table->string('password', 100)->nullable()->comment('密码');
             $table->string('avatar')->nullable()->comment('头像');
             $table->tinyInteger('gender',)->default(0)->comment('性别(0未知 1男 2女)');
             $table->smallInteger('age')->nullable()->comment('年龄');

@@ -15,7 +15,8 @@ use App\Controller\Users\UsersController;
 use Hyperf\HttpServer\Router\Router;
 use Phper666\JWTAuth\Middleware\JWTAuthDefaultSceneMiddleware;
 
-Router::post('/user/login', [UsersController::class, 'login']);
+Router::post('/user/register', [UsersController::class, 'register']); // 注册
+Router::post('/user/login', [UsersController::class, 'login']); // 登录
 
 // 需要登录
 Router::addGroup('/', function() {
